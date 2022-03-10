@@ -27,9 +27,10 @@ def preprocess(text):
     id2word = {}
 
     for word in words:
-        if not word in word2id:
-            word2id[word] = len(word2id)
-            id2word[len(word2id)] = word
+        if word not in word2id:
+            new_id = len(word2id)
+            word2id[word] = new_id
+            id2word[new_id] = word
 
     courps = np.array([word2id[word] for word in words])
 
